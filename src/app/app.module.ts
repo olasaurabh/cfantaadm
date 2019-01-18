@@ -38,9 +38,25 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 //Angular material imports end //
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './auth/login/login.component';
+import { AddSubjectComponent } from './components/subjects/add-subject/add-subject.component';
+import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { SubjectService } from './services/subject.service';
+import { ViewSubjectsComponent } from './components/subjects/view-subjects/view-subjects.component';
+import { EditSubjectComponent } from './components/subjects/edit-subject/edit-subject.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    AddSubjectComponent,
+    ViewSubjectsComponent,
+    EditSubjectComponent
   ],
   imports: [
     BrowserModule,
@@ -76,9 +92,21 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    SubjectService,
+    
+  ],
+  entryComponents: [
+    EditSubjectComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

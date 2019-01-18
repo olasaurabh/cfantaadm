@@ -1,0 +1,61 @@
+<div class="subjectFormComtainer">
+  <form class="addSubjectForm" [formGroup]="addSubjectForm" (ngSubmit)="addSubject(addSubjectForm.value)" autocomplete="new-password">
+    <input autocomplete="false" name="hidden" type="text" style="display:none;">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Subject Name</mat-label>
+          <input matInput placeholder="Subject Name" formControlName="subjectName">
+        </mat-form-field>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Department</mat-label>
+          <input matInput placeholder="Department" formControlName="department">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Subject Code" formControlName="subjectCode">
+        </mat-form-field>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <mat-form-field>
+          <mat-select placeholder="Accepting Works" formControlName="acceptingWorks">
+            <mat-option *ngFor="let food of aw" [value]="food">
+              {{food}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="SubjectC" formControlName="subjectC"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Client Name/Books/Comment" formControlName="clientNameBooksComment"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col">
+          <button mat-raised-button color="primary" type="submit">Primary</button>
+    
+        </div>
+      </div>
+  </form>
+  
+</div>
