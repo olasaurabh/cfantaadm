@@ -49,6 +49,10 @@ import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/fo
 import { SubjectService } from './services/subject.service';
 import { ViewSubjectsComponent } from './components/subjects/view-subjects/view-subjects.component';
 import { EditSubjectComponent } from './components/subjects/edit-subject/edit-subject.component';
+import { AddTextbookComponent } from './components/textbooks/add-textbook/add-textbook.component';
+import { ViewTextbookComponent } from './components/textbooks/view-textbook/view-textbook.component';
+import { EditTextbookComponent } from './components/textbooks/edit-textbook/edit-textbook.component';
+import { TextbookService } from './services/textbook/textbook.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,10 @@ import { EditSubjectComponent } from './components/subjects/edit-subject/edit-su
     LoginComponent,
     AddSubjectComponent,
     ViewSubjectsComponent,
-    EditSubjectComponent
+    EditSubjectComponent,
+    AddTextbookComponent,
+    ViewTextbookComponent,
+    EditTextbookComponent
   ],
   imports: [
     BrowserModule,
@@ -102,10 +109,12 @@ import { EditSubjectComponent } from './components/subjects/edit-subject/edit-su
   ],
   providers: [
     SubjectService,
+    TextbookService
     
   ],
   entryComponents: [
     EditSubjectComponent,
+    EditTextbookComponent,
   ],
   bootstrap: [AppComponent]
 })

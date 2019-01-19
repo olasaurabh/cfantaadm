@@ -1,0 +1,130 @@
+<div *ngIf="editing">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!editing">
+    <div class="textbookFormContainer">
+        <form class="addTextbookForm" [formGroup]="addTextbookForm" (ngSubmit)="addTextbook(addTextbookForm.value)" autocomplete="new-password">
+            <input autocomplete="false" name="hidden" type="text" style="display:none;">
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="subjectControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let subject of filteredStates | async" [value]="subject.subjectName">
+                                {{subject.subjectName}} ({{subject.subjectCode}})
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+
+                <div class="mdl-cell mdl-cell--6-col">
+
+
+                </div>
+            </div>
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Textbook Full Name" formControlName="textbookFullName">
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Author Names
+                        (Separated by commas)(Sometimes include additional word as well, Ex: Thermal Fluid, Taken from Publication Column )" formControlName="authorName">
+                    </mat-form-field>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--3-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Textbook Edition" formControlName="tE">
+                    </mat-form-field>
+
+                </div>
+
+                <div class="mdl-cell mdl-cell--3-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Solution Manual" formControlName="sM">
+                    </mat-form-field>
+
+                </div>
+
+                <div class="mdl-cell mdl-cell--3-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Contents" formControlName="contents">
+                    </mat-form-field>
+
+                </div>
+
+                <div class="mdl-cell mdl-cell--3-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Appendix" formControlName="appendix">
+                    </mat-form-field>
+
+                </div>
+
+            </div>
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Publication" formControlName="publication">
+                    </mat-form-field>
+                </div>
+
+                <div class="mdl-cell mdl-cell--4-col">
+                    <mat-form-field class="example-full-width">
+                        <mat-select placeholder="Availability" formControlName="available">
+                            <mat-option *ngFor="let food of status" [value]="food">
+                              {{food}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="mdl-cell mdl-cell--4-col">
+                    
+                        <mat-checkbox formControlName="codeDone">Code Done</mat-checkbox>
+                    
+                </div>
+            </div>
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Textbook Code" formControlName="textbookCode">
+                    </mat-form-field>
+                </div>
+
+                <div class="mdl-cell mdl-cell--6-col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Comment/ Description about it" formControlname="comment">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell-3-col">
+                    <button mat-raised-button color="primary" type="submit">Add Textbook</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
